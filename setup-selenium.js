@@ -99,7 +99,7 @@ function downloadAndInstallSonar() {
     // Download the javascript plugin, and copy to the right place in sonar.
     maybeDownload(config.sonar.javascript.url, sonarJavascriptJar);
     var sonarPluginsFolder = new File(sonarFolder, 'extensions/plugins');
-    copy(sonarJavascriptJar, new File(sonarPluginsFolder, sonarJavascriptJar.getName());
+    copy(sonarJavascriptJar, new File(sonarPluginsFolder, sonarJavascriptJar.getName()));
 }
 
 function downloadAndInstallSeleniumAndDrivers() {

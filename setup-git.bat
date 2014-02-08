@@ -13,6 +13,7 @@ call :command_exists "git"
 if not "1" == "%RESULT%" (
     git-setup.exe /VERYSILENT /COMPONENTS="icons,ext\reg\shellhere,assoc,assoc_sh" /DIR="c:\git"
     set PATH=%PATH%;c:\git\bin
+    echo Installed Git.
 ) else (
     echo Git already exists.
 )
