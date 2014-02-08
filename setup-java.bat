@@ -38,8 +38,8 @@ set path=%path%;%java_home%\bin
 
 
 echo **************************************************
-echo Now run bin\setup and pass the config file
-echo E.g. bin\setup bin\local-config.js
+echo Now run setup-selenium.bat and pass the config file
+echo E.g. setup-selenium.bat selenium-local-config.js
 
 exit /b 0
 
