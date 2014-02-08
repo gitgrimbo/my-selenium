@@ -103,7 +103,7 @@ function downloadAndInstallSonar() {
 }
 
 function downloadAndInstallSeleniumAndDrivers() {
-    var seleniumJar = new File(tmp, urlFilename(config.selenium.server.url));
+    var seleniumJar = new File(tmp, "selenium-server-standalone.jar");
     var chromeDriverZip = new File(tmp, urlFilename(config.selenium.chromedriver.url));
     var ieDriverZip = new File(tmp, urlFilename(config.selenium.iedriver.url));
 
@@ -134,4 +134,4 @@ downloadAndInstallSonar();
 var chromeDriverExe = new File(tmp, "chromedriver.exe");
 
 println("Remember to pass the webdriver.chrome.driver and/or webdriver.ie.driver options to selenium-server-standalone.jar");
-println("  (bin/start-selenium.bat script shows you how)");
+println("  (node/start-selenium-node.bat script shows you how)");
