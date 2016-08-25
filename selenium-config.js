@@ -3,10 +3,10 @@ config = (function() {
     return {
         selenium: {
             server: {
-                url: "https://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar"
+                url: "https://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar"
             },
             chromedriver: {
-                url: "http://chromedriver.storage.googleapis.com/2.21/chromedriver_win32.zip"
+                url: "http://chromedriver.storage.googleapis.com/2.23/chromedriver_win32.zip"
             },
             iedriver: {
                 url: "https://selenium-release.storage.googleapis.com/2.53/IEDriverServer_Win32_2.53.1.zip"
