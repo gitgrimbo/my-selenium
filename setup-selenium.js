@@ -50,11 +50,12 @@ function maybeDownload(url, file) {
 }
 
 function doCommandIn(dir, command) {
+    print(dir, command);
     exec('cmd /c cd ' + dir + ' && ' + command);
 }
 
 function unzip(zip) {
-    var dir = zip.getParentFile().getAbsolutePath();
+    var dir = "" + zip.getParentFile().toPath().toRealPath();
     doCommandIn(dir, 'jar xvf ' + zip.getName());
 }
 
@@ -108,15 +109,20 @@ function downloadAndInstallSeleniumAndDrivers() {
     var seleniumJar = new File(tmp, "selenium-server-standalone.jar");
     var chromeDriverZip = new File(tmp, urlFilename(config.selenium.chromedriver.url));
     var ieDriverZip = new File(tmp, urlFilename(config.selenium.iedriver.url));
+    var edgeDriverMsi = new File(tmp, urlFilename(config.selenium.edgedriver.url));
 
     maybeDownload(config.selenium.server.url, seleniumJar);
     maybeDownload(config.selenium.chromedriver.url, chromeDriverZip);
     maybeDownload(config.selenium.iedriver.url, ieDriverZip);
+    maybeDownload(config.selenium.edgedriver.url, edgeDriverMsi);
 
     // Windows-specific!
     // Overwrite existing drivers and selenium server.
     unzip(chromeDriverZip);
     unzip(ieDriverZip);
+    // MUST BE RUN FROM ADMIN CMD PROMPT!
+    var edgeDriverCommand = 'msiexec /qb /log MicrosoftWebDriver.log /i MicrosoftWebDriver.msi INSTALLDIR="' + tmpPath + '"';
+    doCommandIn(tmpPath, edgeDriverCommand);
 }
 
 // START
@@ -126,7 +132,8 @@ if ("undefined" === typeof config) {
 }
 
 var f = new File(".");
-var tmp = new File(f, "tmp");
+var tmp = new File(f, "tmp").getAbsoluteFile();
+var tmpPath = "" + tmp.toPath().toRealPath();
 
 tmp.mkdirs();
 
@@ -135,5 +142,5 @@ downloadAndInstallSonar();
 
 var chromeDriverExe = new File(tmp, "chromedriver.exe");
 
-println("Remember to pass the webdriver.chrome.driver and/or webdriver.ie.driver options to selenium-server-standalone.jar");
+println("Remember to pass the webdriver.chrome.driver, webdriver.ie.driver, webdriver.edge.driver options to selenium-server-standalone.jar");
 println("  (node/start-selenium-node.bat script shows you how)");

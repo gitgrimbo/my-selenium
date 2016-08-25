@@ -21,6 +21,13 @@
           "version": "32",
           "maxInstances": 1,
           "seleniumProtocol": "WebDriver"
+        },
+        {
+          "platform": "WIN10",
+          "browserName": "MicrosoftEdge",
+          "version": "13",
+          "maxInstances": 1,
+          "seleniumProtocol": "WebDriver"
         }
       ],
   "configuration":
