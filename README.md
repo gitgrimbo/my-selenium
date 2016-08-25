@@ -15,7 +15,7 @@ Scripts to setup a (Windows) node for Selenium grid testing.
 
 Requires Git setup program to be downloaded. E.g.:
 
-    https://msysgit.googlecode.com/files/Git-1.8.5.2-preview20131230.exe
+    https://github.com/git-for-windows/git/releases/download/v2.9.3.windows.2/Git-2.9.3.2-64-bit.exe
 
 Rename to `git-setup.exe`.
 
@@ -39,7 +39,7 @@ Edit `config.bat` if you want Java downloading from an alternate location. Defau
 
 Java is required for both Selenium and the scripts that download/setup Selenium (the scripts use `jrunscript`).
 
-## 3) Install Selenium, IEDriver and ChromeDriver
+## 3) Install Selenium, IEDriver, ChromeDriver, MicrosoftWebDriver
 
 Edit `selenium-config.js` if you want to use alternate download URLs, or see `selenium-local-config.js` for if you want to install from setup programs on your LAN.
 
