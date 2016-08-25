@@ -1,3 +1,5 @@
+load("nashorn:mozilla_compat.js");
+
 /*
 
 Run using jrunscript from project root. E.g.:
