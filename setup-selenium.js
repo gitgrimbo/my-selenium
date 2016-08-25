@@ -138,7 +138,7 @@ var tmpPath = "" + tmp.toPath().toRealPath();
 tmp.mkdirs();
 
 downloadAndInstallSeleniumAndDrivers();
-downloadAndInstallSonar();
+//downloadAndInstallSonar();
 
 var chromeDriverExe = new File(tmp, "chromedriver.exe");
 
